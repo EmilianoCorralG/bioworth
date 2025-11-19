@@ -214,7 +214,7 @@ function App() {
         </div>
       )}
 
-      {/* PRODUCTO INDIVIDUAL */}
+      {/*PRODUCTO INDIVIDUAL*/}
       {view === "product" && selectedProduct && (
         <div className="product-view">
           <h2>{selectedProduct.name}</h2>
