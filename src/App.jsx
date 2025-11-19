@@ -148,7 +148,7 @@ function App() {
           {/* SALUDO */}
           {currentUser?.profile?.name && (
             <h2 className="welcome-text" style={{ margin: "10px 0" }}>
-              ¡Hola, {currentUser.profile.name}!
+              ¡BIENVENIDO A NUESTRA TIENDA!, {currentUser.profile.name}!
             </h2>
           )}
 
