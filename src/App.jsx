@@ -17,12 +17,8 @@ function App() {
   const [priceFilter, setPriceFilter] = useState("");
   const [form, setForm] = useState({ username: "", password: "" });
   const [isLogin, setIsLogin] = useState(true);
-
-  const [profileData, setProfileData] = useState(
-    currentUser?.profile || { name: "", address: "" }
-  );
-
-  const [selectedProduct, setSelectedProduct] = useState(null); // ⭐ NUEVO
+  const [profileData, setProfileData] = useState(currentUser?.profile || { name: "", address: "" });
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => localStorage.setItem("users", JSON.stringify(users)), [users]);
   useEffect(() => localStorage.setItem("currentUser", JSON.stringify(currentUser)), [currentUser]);
@@ -134,7 +130,6 @@ function App() {
       {view === "catalog" && (
         <div className="catalog-container">
           <header>
-
             {currentUser?.profile?.name && (
               <h2 className="welcome-text" style={{ marginBottom: "10px" }}>
                 Bienvenido, {currentUser.profile.name}
@@ -194,7 +189,7 @@ function App() {
                 className="product"
                 onClick={() => {
                   setSelectedProduct(p);
-                  setView("product"); // ⭐ SE AGREGA NUEVA VISTA
+                  setView("product");
                 }}
                 style={{ cursor: "pointer" }}
               >
@@ -219,7 +214,7 @@ function App() {
         </div>
       )}
 
-      {/* ⭐ VISTA DEL PRODUCTO INDIVIDUAL */}
+      {/* PRODUCTO INDIVIDUAL */}
       {view === "product" && selectedProduct && (
         <div className="product-view">
           <h2>{selectedProduct.name}</h2>
@@ -247,7 +242,6 @@ function App() {
       {view === "profile" && (
         <div className="profile-container">
           <h2>Mi perfil</h2>
-
           <label>Dirección:</label>
           <input
             type="text"
@@ -397,6 +391,7 @@ function App() {
           </div>
         </div>
       )}
+
     </div>
   );
 }
