@@ -418,8 +418,8 @@ button.clear-filters:hover {
 }
 
 .product-view .product-image-large {
-  width: 450px;
-  height: 450px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 15px;
