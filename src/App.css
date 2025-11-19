@@ -405,8 +405,7 @@ button.clear-filters:hover {
   transform: scale(1.05);
 }
 
-/* VISTA INDIVIDUAL DEL PRODUCTO*/
-
+/* ==== VISTA INDIVIDUAL DEL PRODUCTO ==== */
 .product-view {
   padding: 20px;
   text-align: center;
@@ -418,8 +417,9 @@ button.clear-filters:hover {
 }
 
 .product-view .product-image-large {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 15px;
@@ -479,4 +479,35 @@ button.clear-filters:hover {
   background: #00ff8c;
   color: #0d1a12;
   transform: scale(1.05);
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 600px) {
+  .product-view {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .product-view .product-image-large {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  .product-view button {
+    width: 90%;
+    max-width: 200px;
+    font-size: 0.9rem;
+  }
+
+  .product-view h2 {
+    font-size: 1.4rem;
+  }
+
+  .product-view p {
+    font-size: 0.9rem;
+  }
+
+  .product-view .price {
+    font-size: 1.1rem;
+  }
 }
