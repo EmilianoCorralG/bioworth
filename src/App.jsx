@@ -209,7 +209,7 @@ function App() {
             style={{ display: "block", textAlign: "center", marginTop: "200px", color: "#00ff8c" }}
           >
             "Si te interesa saber más sobre el ecodiseño o la producción
-            y consumo responsable da click a este texto para más información"
+            y consumo responsable da click a este texto para más información."
           </a>
         </div>
       )}
