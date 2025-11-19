@@ -350,7 +350,7 @@ function App() {
 
               <div className="action-buttons">
                 <button className="finalize" onClick={finalizePurchase}>
-                  ✅ Finalizar compra
+                  ✅Finalizar compra
                 </button>
                 <button className="back" onClick={() => setView("catalog")}>
                   ⬅ Volver
