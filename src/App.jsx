@@ -29,7 +29,7 @@ function App() {
     { id: 1, name: "Estantería ecológica", price: 1200, category: "Hogar", description: "Hecha con materiales reciclados, resistente y moderna.", image: estanteria },
     { id: 2, name: "Maceta ecológica", price: 350, category: "Hogar", description: "Perfecta para plantas pequeñas, hecha con materiales reciclados.", image: maceta },
     { id: 3, name: "Bidet portátil", price: 750, category: "Higiene", description: "Alternativa ecológica para el baño, reutilizable y práctica.", image: bidet },
-    { id: 4, name: "Lámpara ecológica", price: 250, category: "Accesorios", description: "Funciona con energía solar, ideal para interiores o exteriores.", image: lampara },
+    { id: 4, name: "Lámpara ecológica", price: 570, category: "Accesorios", description: "Funciona con energía solar, ideal para interiores o exteriores.", image: lampara },
     { id: 5, name: "Cucharas de bambú", price: 200, category: "Hogar", description: "Set de cucharas biodegradables, naturales y duraderas.", image: cucharas },
   ];
 
