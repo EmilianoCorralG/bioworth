@@ -169,7 +169,8 @@ header h1 {
 
 /* Botones del header */
 .user-controls button {
-  margin-left: 8px;
+  margin-left: 1px;
+  margin-top:160px;
   background-color: #13291c;
   border: 1px solid #00ff8c;
   border-radius: 8px;
