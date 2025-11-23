@@ -93,7 +93,7 @@ body, html, .App {
 
 /* ==== SALUDO ==== */
 .welcome-text {
-  margin: 10px 0 20px 0; /* margen superior e inferior ajustado */
+  margin: 10px 0 20px 0; 
   color: #00ff8c;
   text-shadow: 0 0 6px rgba(0, 255, 140, 0.5);
   text-align: center;
@@ -168,7 +168,6 @@ header h1 {
     0 0 40px rgb(0, 0, 0);
 }
 
-/* Botones del header */
 .user-controls button {
   margin-left: 1px;
   margin-top:160px;
@@ -511,5 +510,114 @@ button.clear-filters:hover {
 
   .product-view .price {
     font-size: 1.1rem;
+  }
+}
+
+/* ==========================
+   BUZÓN DE QUEJAS
+========================== */
+.complaint-container {
+  padding: 25px;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #13291c;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 140, 0.25);
+  text-align: center;
+}
+
+.complaint-container h2 {
+  color: #00ff8c;
+  text-shadow: 0 0 10px rgba(0, 255, 140, 0.6);
+  margin-bottom: 20px;
+}
+
+/* Campos del formulario */
+.complaint-container input,
+.complaint-container textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #00ff8c;
+  background-color: #143524;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.buzon-container input,
+.buzon-container textarea {
+  background-color: #143524;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 14px;
+  width:99%;
+  margin-bottom: 10px;
+  outline: none;
+  color:#ffffff;
+  
+}
+.buzon-container textarea {
+  height: 80px; 
+  resize: none;
+  color: #ffffff;
+
+}
+.buzon-container input:focus,
+.buzon-container textarea:focus {
+  border-color: #2e8b35; 
+  box-shadow: 0 0 6px rgba(46, 139, 53, 0.5);
+}
+
+/* textarea */
+.complaint-container textarea {
+  min-height: 140px;
+  resize: none;
+}
+
+/* Botón */
+.send-button {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #00ff8c;
+  color: #00ff8c;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 8px rgba(0, 255, 140, 0.3);
+  transition: 0.3s;
+}
+  .send-btn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  margin-top: 10px;
+  display: block;
+  margin-left: 600px;
+  
+}
+
+.send-button:hover {
+  background: #00ff8c;
+  color: #0d1a12;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ff8c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .complaint-container {
+    max-width: 90%;
+    padding: 18px;
+  }
+
+  .complaint-container button {
+    font-size: 0.9rem;
   }
 }

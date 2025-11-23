@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import "./App.css";
 import logo from "./assets/bioworth.jpg";
 import estanteria from "./assets/estanteria.jpg";
@@ -19,6 +20,29 @@ function App() {
   const [isLogin, setIsLogin] = useState(true);
   const [profileData, setProfileData] = useState(currentUser?.profile || { name: "", address: "" });
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const buzonForm = useRef();
+  const [status, setStatus] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus("Enviando...");
+
+    emailjs.sendForm(
+      "service_q1zdm4f",
+      "template_ldysfto",
+      buzonForm.current,
+      "ns07ThLPu0Lt1UR0j"
+    )
+    .then(() => {
+      setStatus("¡Mensaje enviado con éxito!");
+      buzonForm.current.reset();
+    })
+    .catch((error) => {
+      console.error(error);
+      setStatus("Error al enviar mensaje.");
+    });
+  };
 
   useEffect(() => localStorage.setItem("users", JSON.stringify(users)), [users]);
   useEffect(() => localStorage.setItem("currentUser", JSON.stringify(currentUser)), [currentUser]);
@@ -103,14 +127,14 @@ function App() {
   return (
     <div className="App">
 
-      {/* LOGIN */}
+      {/* LOGIN*/}
       {view === "login" && (
         <div className="login-container">
           <img src={logo} alt="BioWorth logo" className="logo" />
           <h1>BioWorth</h1>
           <h3>{isLogin ? "Inicia sesión" : "Crea una cuenta"}</h3>
 
-          <input type="text" placeholder="Usuario"
+          <input type="text" placeholder="Correo"
             value={form.username}
             onChange={(e) => setForm({ ...form, username: e.target.value })} />
 
@@ -126,7 +150,7 @@ function App() {
         </div>
       )}
 
-      {/* CATÁLOGO */}
+      {/* CATÁLOGO*/}
       {view === "catalog" && (
         <div className="catalog-container">
           <header>
@@ -141,11 +165,11 @@ function App() {
             <div className="user-controls">
               <button onClick={() => setView("cart")}>🛒 Carrito ({cart.length})</button>
               <button onClick={() => setView("purchases")}> Mis compras</button>
+              <button onClick={() => setView("buzon")}>📩 Buzón</button>
               <button onClick={logout}> Cerrar sesión</button>
             </div>
           </header>
 
-          {/* SALUDO */}
           {currentUser?.profile?.name && (
             <h2 className="welcome-text" style={{ margin: "10px 0" }}>
               ¡BIENVENIDO A NUESTRA TIENDA!, {currentUser.profile.name}!
@@ -199,20 +223,31 @@ function App() {
               </div>
             ))}
           </div>
-
-          <a
-            href="https://goo.su/Kqd0n6W"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="external-link"
-            style={{ display: "block", textAlign: "center", marginTop: "200px", color: "#00ff8c" }}
-          >
-            "Si te interesa saber más sobre el ecodiseño o la producción
-            y consumo responsable da click a este texto para más información."
-          </a>
         </div>
       )}
 
+      {/* BUZÓN*/}
+      {view === "buzon" && (
+        <div className="buzon-container">
+          <h2>📩 Buzón de Quejas y Sugerencias</h2>
+          <form ref={buzonForm} onSubmit={sendEmail}>
+            <label>Tu nombre</label>
+            <input type="text" name="user_name" required />
+
+            <label>Tu correo</label>
+            <input type="email" name="user_email" required />
+
+            <label>Mensaje</label>
+            <textarea name="message" required />
+
+            <button type="submit" className="back send-btn">Enviar</button>
+            <p>{status}</p>
+          </form>
+
+          <button className="back" onClick={() => setView("catalog")}>⬅ Volver</button>
+        </div>
+      )}
+      
       {/* PRODUCTO INDIVIDUAL */}
       {view === "product" && selectedProduct && (
         <div className="product-view">
