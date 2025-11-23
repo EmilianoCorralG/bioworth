@@ -172,7 +172,7 @@ function App() {
 
           {currentUser?.profile?.name && (
             <h2 className="welcome-text" style={{ margin: "10px 0" }}>
-              ¡BIENVENIDO A NUESTRA TIENDA!, {currentUser.profile.name}!
+              ¡BIENVENIDO A NUESTRA TIENDA!, {currentUser.profile.name}
             </h2>
           )}
 
