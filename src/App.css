@@ -582,8 +582,8 @@ button.clear-filters:hover {
   color: #e0dba8;
   font-weight: bold;
   border-radius: 12px;
-  padding: 12px 16px;
-  margin-top: 10px;
+  padding: 12px;
+  margin-top: center;
   cursor: pointer;
   text-transform: uppercase;
   box-shadow: 0 0 8px rgba(157, 157, 120, 0.3);
