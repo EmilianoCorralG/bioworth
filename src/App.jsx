@@ -253,6 +253,18 @@ function App() {
             {isLogin ? "Entrar" : "Registrarse"}
           </button>
 
+          {/* BOTÓN DE INVITADO */}
+          <button
+            style={{ marginTop: "10px" }}
+            onClick={() => {
+              setCurrentUser({ uid: "guest" });
+              setProfileData({ name: "Invitado", address: "", cart: [], purchases: [] });
+              setView("catalog");
+            }}
+          >
+            Entrar como invitado
+          </button>
+
           <p
             className="switch"
             onClick={() => setIsLogin(!isLogin)}
@@ -325,24 +337,24 @@ function App() {
           </div>
 
           <div className="products">
-  {filteredCatalog.map((p) => (
-    <div
-      key={p.id}
-      className="product"
-      onClick={() => {
-        setSelectedProduct(p);
-        setView("product");
-      }}
-      style={{ cursor: "pointer" }}
-    > 
-     <img src={p.image} className="product-image" />
-     <h3>{p.name}</h3>
-     <p>{p.description}</p>
-    <p className="price">${p.price} MXN</p>
-     </div>
-     ))}
-   </div>
-</div>
+            {filteredCatalog.map((p) => (
+              <div
+                key={p.id}
+                className="product"
+                onClick={() => {
+                  setSelectedProduct(p);
+                  setView("product");
+                }}
+                style={{ cursor: "pointer" }}
+              > 
+                <img src={p.image} className="product-image" />
+                <h3>{p.name}</h3>
+                <p>{p.description}</p>
+                <p className="price">${p.price} MXN</p>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
 
       {/* BUZÓN */}
